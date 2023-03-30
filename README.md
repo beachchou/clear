@@ -15,24 +15,24 @@ Add this line to your site's configuration:
 
     # Front matter defaults
     defaults:
-    -
+      -
         scope:
-        path: ""
-        type: "posts"
+          path: ""
+          type: "posts"
         values:
-        layout: document
-    -
+          layout: document
+      -
         scope:
-        path: ""
-        type: "pages"
+          path: ""
+          type: "pages"
         values:
-        layout: page
+          layout: page
 
     # Plugins
     plugins:
-    - jekyll-seo-tag
-    - jekyll-github-metadata
-    - jekyll-feed
+      - jekyll-seo-tag
+      - jekyll-github-metadata
+      - jekyll-feed
 
 ## i18n
 
