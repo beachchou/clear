@@ -1,0 +1,37 @@
+<!-- collection -->
+{% assign docs = site[include.collection] | default: site.posts %}
+
+<!-- flters -->
+{% if include.flters %}
+    {% for flter in include.flters %}
+        {% case flter.op %}
+            {% when "neq" %}
+                {% assign docs = docs | where_exp:"item","item[flter.key] != flter.value" %}
+            {% when "gt" %}
+                {% assign docs = docs | where_exp:"item","item[flter.key] > flter.value" %}
+            {% when "lt" %}
+                {% assign docs = docs | where_exp:"item","item[flter.key] < flter.value" %}
+            {% when "ge" %}
+                {% assign docs = docs | where_exp:"item","item[flter.key] >= flter.value" %}
+            {% when "le" %}
+                {% assign docs = docs | where_exp:"item","item[flter.key] <= flter.value" %}
+            {% when "contains" %}
+                {% assign docs = docs | where_exp:"item","item[flter.key] contains flter.value" %}
+            {% else %}
+                {% assign docs = docs | where_exp:"item","item[flter.key] == flter.value" %}
+        {% endcase %}
+    {% endfor %}
+{% endif %}
+<!-- sort -->
+{% if include.sorts %}
+    {% for sort in include.sorts %}
+        {% assign docs_nils_order = sort.nils_order | default: "last" %}
+        {% assign docs = docs | sort: sort.key, docs_nils_order %}
+    {% endfor %}
+{% endif %}
+<!-- list -->
+{% for doc in docs %}
+<div>
+    <a href="{{ doc.url }}">{{ doc.title }}</a>
+</div>
+{% endfor %}

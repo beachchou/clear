@@ -1,0 +1,38 @@
+title: Clear
+description: A clear Jekyll theme
+
+lang: en-US
+
+collections_dir     : collections
+collections:
+  # posts:
+    # output          : true
+  docs:
+    output          : true
+
+# Front matter defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: document
+  -
+    scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: document
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-github-metadata
+  - jekyll-feed

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+  <head>
+    <meta charset="UTF-8">
+    {% seo %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="shortcut icon" href="{{ site.github.owner_gravatar_url }}" />
+  </head>
+  <body>
+    <header>
+      <a href="/">{{ site.title }}</a>
+    </header>
+    {{ content }}
+  </body>
+</html>

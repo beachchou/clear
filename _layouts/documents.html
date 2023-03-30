@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<article>
+    <header>
+        <h1>{{ page.title |default: site.title }}</h1>
+        {{ content }}
+    </header>
+    <section>
+        {% include documents.html collection=page.layout-config.documents.collection flters=page.layout-config.documents.flters sorts=page.layout-config.documents.sorts %}
+    </section>
+</article>
